@@ -3,15 +3,20 @@ const mongoose = require('mongoose');
 const cookieSession = require('cookie-session');
 const passport = require('passport');
 const keys = require('./config/keys');
-const authRouthes = require('./routes/authRoutes')
+const authRoutes = require('./routes/authRoutes');
+const bodyParser = require("body-parser");
+
 
 require('./models/User');
+require('./models/Survey');
 require('./services/passport');
 
 
 mongoose.connect(keys.mongoUri);
 
 const app = express();
+app.use(bodyParser.json());
+
 
 app.use(
   cookieSession({
@@ -22,7 +27,10 @@ app.use(
 app.use(passport.initialize());
 app.use(passport.session());
 
-authRouthes(app);
+authRoutes(app);
+//require('./routes/authRoutes')(app); //needed?
+require('./routes/surveyRoutes')(app); //probably wont work!!1
+
 
 if (process.env.NODE_ENV === 'production') {
   app.use(express.static('client/build'));
