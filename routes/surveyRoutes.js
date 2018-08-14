@@ -21,7 +21,7 @@ module.exports = app => {
       subject,
       body,
       _user: req.user.id,
-      dateSend: Date.now()
+      dateSent: Date.now()
     });
 
     try {

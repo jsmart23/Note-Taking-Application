@@ -7,10 +7,10 @@ import * as actions from '../../actions';
 const SurveyReview = ({onCancel, formValues, submitSurvey, history}) => {
   return (
     <div>
-      <h5>Confirm you selection</h5>
+      <h5>Confirm your Notes</h5>
       <div>
         <div>
-          <label>SurveyTitle</label>
+          <label>Title</label>
           <div>{formValues.title}</div>
         </div>
       </div>

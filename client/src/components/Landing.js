@@ -6,7 +6,7 @@ const Landing = () => {
       <h1>
         Notes!
       </h1>
-      Collect feedback from your users
+      Keep all of your notes in one place
     </div>
 
   );
